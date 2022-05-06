@@ -1,0 +1,15 @@
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\bin\Debug\net5.0\student-platform.DAL.deps.json
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\bin\Debug\net5.0\student-platform.DAL.runtimeconfig.json
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\bin\Debug\net5.0\student-platform.DAL.runtimeconfig.dev.json
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\bin\Debug\net5.0\student-platform.DAL.dll
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\bin\Debug\net5.0\ref\student-platform.DAL.dll
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\bin\Debug\net5.0\student-platform.DAL.pdb
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.csproj.AssemblyReference.cache
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.AssemblyInfoInputs.cache
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.AssemblyInfo.cs
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.csproj.CoreCompileInputs.cache
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.dll
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\ref\student-platform.DAL.dll
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.pdb
+C:\Users\amer2\Desktop\Aplicatii\Facultate\Anul 2\Semestrul I\Dezvoltarea Aplicatiilor Web\ASP.NET-Angular-Project\backend\student-platform.DAL\obj\Debug\net5.0\student-platform.DAL.genruntimeconfig.cache
