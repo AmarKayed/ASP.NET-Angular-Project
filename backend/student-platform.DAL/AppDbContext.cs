@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using student_platform.DAL.Configurations;
+using student_platform.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +21,11 @@ namespace student_platform.DAL
             optionsBuilder.UseLoggerFactory(LoggerFactory.Create(options => options.AddConsole()));
         }
 
+        public DbSet<Student> Students { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new StudentConfiguration());
         }
 
     }
