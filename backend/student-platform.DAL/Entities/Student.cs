@@ -12,5 +12,6 @@ namespace student_platform.DAL.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Major { get; set; }
+        public virtual StudentAddress StudentAddress { get; set; }
     }
 }
