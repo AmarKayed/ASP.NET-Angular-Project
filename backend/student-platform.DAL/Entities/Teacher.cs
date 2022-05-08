@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace student_platform.DAL.Entities
 {
-    public class Student
+    public class Teacher
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Major { get; set; }
-        public virtual StudentAddress StudentAddress { get; set; }
-        public virtual ICollection<Deadline> Deadlines { get; set; }
+        public string Course { get; set; }
         public virtual ICollection<StudentTeacher> StudentTeachers { get; set; }
     }
 }
