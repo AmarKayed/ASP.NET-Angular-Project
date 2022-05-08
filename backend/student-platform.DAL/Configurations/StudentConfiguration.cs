@@ -15,11 +15,7 @@ namespace student_platform.DAL.Configurations
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.FirstName)
-                .HasColumnType("nvarchar(200)")
-                .HasMaxLength(200);
-
-            builder.Property(x => x.LastName)
+            builder.Property(x => x.Name)
                 .HasColumnType("nvarchar(200)")
                 .HasMaxLength(200);
 
