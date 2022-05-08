@@ -14,12 +14,15 @@ namespace student_platform.DAL.Configurations
         public void Configure(EntityTypeBuilder<StudentAddress> builder)
         {
             builder.HasKey(x => x.Id);
+
             builder.Property(x => x.City)
                 .HasColumnType("nvarchar(100)")
                 .HasMaxLength(100);
+
             builder.Property(x => x.Country)
                 .HasColumnType("nvarchar(100)")
                 .HasMaxLength(100);
+
             builder.HasOne(x => x.Student)
                 .WithOne(x => x.StudentAddress)
                 .HasForeignKey<StudentAddress>(x => x.StudentId);

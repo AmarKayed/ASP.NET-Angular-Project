@@ -23,11 +23,13 @@ namespace student_platform.DAL
 
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentAddress> StudentAddresses { get; set; }
+        public DbSet<Deadline> Deadlines { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
             modelBuilder.ApplyConfiguration(new StudentAddressConfiguration());
+            modelBuilder.ApplyConfiguration(new DeadlineConfiguration());
         }
 
     }

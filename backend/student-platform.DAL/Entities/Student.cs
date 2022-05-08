@@ -12,5 +12,6 @@ namespace student_platform.DAL.Entities
         public string Name { get; set; }
         public string Major { get; set; }
         public virtual StudentAddress StudentAddress { get; set; }
+        public virtual ICollection<Deadline> Deadlines { get; set; }
     }
 }
