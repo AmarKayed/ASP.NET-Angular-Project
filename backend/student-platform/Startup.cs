@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using student_platform.BLL.Interfaces;
+using student_platform.BLL.Managers;
 using student_platform.DAL;
 using student_platform.DAL.Interfaces;
 using student_platform.DAL.Repositories;
@@ -43,6 +45,9 @@ namespace student_platform
             services.AddTransient<IStudentAddressRepository, StudentAddressRepository>();
             services.AddTransient<IDeadlineRepository, DeadlineRepository>();
             services.AddTransient<ITeacherRepository, TeacherRepository>();
+
+            services.AddTransient<IStudentManager, StudentManager>();
+
 
 
             services.AddSwaggerGen(c =>

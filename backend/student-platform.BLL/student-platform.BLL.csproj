@@ -9,9 +9,4 @@
     <ProjectReference Include="..\student-platform.DAL\student-platform.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Managers\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>
