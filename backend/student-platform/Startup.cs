@@ -9,6 +9,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using student_platform.DAL;
+using student_platform.DAL.Interfaces;
+using student_platform.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +37,9 @@ namespace student_platform
 
             //services.AddControllers().AddJsonOptions(x =>
             //x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+
+            services.AddTransient<IStudentRepository, StudentRepository>();
 
 
             services.AddSwaggerGen(c =>
