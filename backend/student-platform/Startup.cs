@@ -42,6 +42,7 @@ namespace student_platform
             services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<IStudentAddressRepository, StudentAddressRepository>();
             services.AddTransient<IDeadlineRepository, DeadlineRepository>();
+            services.AddTransient<ITeacherRepository, TeacherRepository>();
 
 
             services.AddSwaggerGen(c =>
