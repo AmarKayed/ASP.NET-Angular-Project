@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\student-platform.BLL\student-platform.BLL.csproj" />
     <ProjectReference Include="..\student-platform.DAL\student-platform.DAL.csproj" />
   </ItemGroup>
 
