@@ -61,14 +61,17 @@ namespace student_platform.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(StudentAddress studentAddress)
+        public async Task Update(int id, StudentAddressModels studentAddressModel)
         {
+            StudentAddress studentAddress = await _context.StudentAddresses.FindAsync(id);
+            studentAddress.City = studentAddress.City; studentAddress.Country = studentAddress.Country;
             _context.StudentAddresses.Update(studentAddress);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(StudentAddress studentAddress)
+        public async Task Delete(int id)
         {
+            StudentAddress studentAddress = await _context.StudentAddresses.FindAsync(id);
             _context.StudentAddresses.Remove(studentAddress);
             await _context.SaveChangesAsync();
         }

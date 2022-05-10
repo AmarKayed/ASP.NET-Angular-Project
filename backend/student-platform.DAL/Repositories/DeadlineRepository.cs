@@ -28,8 +28,9 @@ namespace student_platform.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(Deadline deadline)
+        public async Task Delete(int id)
         {
+            Deadline deadline = await _context.Deadlines.FindAsync(id);
             _context.Deadlines.Remove(deadline);
             await _context.SaveChangesAsync();
         }
@@ -73,8 +74,10 @@ namespace student_platform.DAL.Repositories
             return deadlineModel;
         }
 
-        public async Task Update(Deadline deadline)
+        public async Task Update(int id, DeadlineModels deadlineModel)
         {
+            Deadline deadline = await _context.Deadlines.FindAsync(id);
+            deadline.Title = deadlineModel.Title; deadline.DaysLeft = deadlineModel.DaysLeft;
             _context.Deadlines.Update(deadline);
             await _context.SaveChangesAsync();
         }

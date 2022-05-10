@@ -13,8 +13,8 @@ namespace student_platform.DAL.Interfaces
         Task<List<DeadlineModels>> GetAll();
         Task<DeadlineModels> GetById(int id);
         Task Create(DeadlineModels deadlineModel);
-        Task Update(Deadline deadline);
-        Task Delete(Deadline deadline);
+        Task Update(int id, DeadlineModels deadlineModel);
+        Task Delete(int id);
         Task<IQueryable<Deadline>> GetAllQuery();
     }
 }

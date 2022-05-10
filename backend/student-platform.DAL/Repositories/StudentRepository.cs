@@ -21,12 +21,13 @@ namespace student_platform.DAL.Repositories
         public async Task<List<StudentModels>> GetAll()
         {
             var students = await (await GetAllQuery()).ToListAsync();
-            var list = new List<StudentModels>();
+            List<StudentModels> list = new List<StudentModels>();
             foreach (var student in students)
             {
                 StudentModels studentModel = new StudentModels
                 {
-                    Name = student.Name
+                    Name = student.Name,
+                    Major = student.Major
                 };
                 list.Add(studentModel);
             }
@@ -59,14 +60,17 @@ namespace student_platform.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(Student student)
+        public async Task Update(int id, StudentModels studentModel)
         {
+            Student student = await _context.Students.FindAsync(id);
+            student.Name = studentModel.Name; student.Major = studentModel.Major;
             _context.Students.Update(student);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(Student student)
+        public async Task Delete(int id)
         {
+            Student student = await _context.Students.FindAsync(id);
             _context.Students.Remove(student);
             await _context.SaveChangesAsync();
         }

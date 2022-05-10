@@ -13,8 +13,8 @@ namespace student_platform.DAL.Interfaces
         Task<List<StudentModels>> GetAll();
         Task<StudentModels> GetById(int id);
         Task Create(StudentModels studentModel);
-        Task Update(Student student);
-        Task Delete(Student student);
+        Task Update(int id, StudentModels studentModel);
+        Task Delete(int id);
         Task<IQueryable<Student>> GetAllQuery();
     }
 }

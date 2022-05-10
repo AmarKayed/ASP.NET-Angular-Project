@@ -28,8 +28,9 @@ namespace student_platform.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(Teacher teacher)
+        public async Task Delete(int id)
         {
+            Teacher teacher = await _context.Teachers.FindAsync(id);
             _context.Teachers.Remove(teacher);
             await _context.SaveChangesAsync();
         }
@@ -73,8 +74,10 @@ namespace student_platform.DAL.Repositories
             return teacherModel;
         }
 
-        public async Task Update(Teacher teacher)
+        public async Task Update(int id, TeacherModels teacherModel)
         {
+            Teacher teacher = await _context.Teachers.FindAsync(id);
+            teacher.Name = teacherModel.Name; teacher.Course = teacherModel.Course;
             _context.Teachers.Update(teacher);
             await _context.SaveChangesAsync();
         }
