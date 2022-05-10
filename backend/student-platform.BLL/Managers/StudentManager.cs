@@ -54,6 +54,11 @@ namespace student_platform.BLL.Managers
             return list;
         }
 
+        public async Task<Object> GetJoin()
+        {
+            return await _studentRepo.GetJoin();
+        }
+
 
 
 

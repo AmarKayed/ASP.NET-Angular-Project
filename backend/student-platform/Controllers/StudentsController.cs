@@ -46,6 +46,12 @@ namespace student_platform.Controllers
             return Ok(list);
         }
 
+        [HttpGet("get-join")]
+        public async Task<IActionResult> GetJoin()
+        {
+            return Ok(await _studentManager.GetJoin());
+        }
+
 
 
 

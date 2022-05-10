@@ -71,6 +71,22 @@ namespace student_platform.DAL.Repositories
                 .ToListAsync();
             return result;
         }
+        
+        public async Task<Object> GetJoin()
+        {
+            var students = _context.Students;
+            var join = await _context.Deadlines
+                .Join(students, b => b.StudentId, a => a.Id, (b, a) => new
+                {
+                    a.Name,
+                    a.Major,
+                    b.Title,
+                    b.DaysLeft,
+                }).ToListAsync();
+
+            return join;
+        }
+
 
         public async Task<List<StudentModels>> GetAll()
         {

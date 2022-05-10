@@ -33,9 +33,9 @@ namespace student_platform.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] DeadlineModels deadlineModel)
+        public async Task<IActionResult> Create([FromRoute] int studentId, [FromBody] DeadlineModels deadlineModel)
         {
-            await _deadlineManager.Create(deadlineModel);
+            await _deadlineManager.Create(studentId, deadlineModel);
             return NoContent();
         }
 

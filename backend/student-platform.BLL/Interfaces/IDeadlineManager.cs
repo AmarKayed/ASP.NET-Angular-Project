@@ -11,7 +11,7 @@ namespace student_platform.BLL.Interfaces
     {
         Task<List<DeadlineModels>> GetAll();
         Task<DeadlineModels> GetById(int id);
-        Task Create(DeadlineModels deadlineModel);
+        Task Create(int studentId, DeadlineModels deadlineModel);
         Task Update(int id, DeadlineModels deadlineModel);
         Task Delete(int id);
     }

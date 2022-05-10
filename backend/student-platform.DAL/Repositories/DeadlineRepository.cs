@@ -17,12 +17,13 @@ namespace student_platform.DAL.Repositories
         {
             _context = context;
         }
-        public async Task Create(DeadlineModels deadlineModel)
+        public async Task Create(int studentId, DeadlineModels deadlineModel)
         {
             var deadline = new Deadline
             {
                 Title = deadlineModel.Title,
-                DaysLeft = deadlineModel.DaysLeft
+                DaysLeft = deadlineModel.DaysLeft,
+                StudentId = studentId
             };
             await _context.Deadlines.AddAsync(deadline);
             await _context.SaveChangesAsync();

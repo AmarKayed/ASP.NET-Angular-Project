@@ -14,6 +14,8 @@ namespace student_platform.DAL.Interfaces
         Task<List<StudentJoinStudentAddressModels>> GetAddress();
         Task<List<StudentModels>> GetMajor(string major);
         Task<Object> GetMajorCount();
+        Task<Object> GetJoin();
+
 
 
         Task<List<StudentModels>> GetAll();
