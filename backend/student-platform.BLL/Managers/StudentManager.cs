@@ -1,5 +1,7 @@
 ﻿using student_platform.BLL.Interfaces;
+using student_platform.DAL.Entities;
 using student_platform.DAL.Interfaces;
+using student_platform.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,5 +29,30 @@ namespace student_platform.BLL.Managers
 
             return list;
         }
+
+
+
+
+        public async Task<List<StudentModels>> GetAll()
+        {
+            return (await _studentRepo.GetAll());
+        }
+        public async Task<StudentModels> GetById(int id)
+        {
+            return (await _studentRepo.GetById(id));
+        }
+        public async Task Create(StudentModels studentModel)
+        {
+            await _studentRepo.Create(studentModel);
+        }
+        public async Task Update(int id, StudentModels studentModel)
+        {
+            await _studentRepo.Update(id, studentModel);
+        }
+        public async Task Delete(int id)
+        {
+            await _studentRepo.Delete(id);
+        }
+
     }
 }
