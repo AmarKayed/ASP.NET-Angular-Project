@@ -11,8 +11,8 @@ namespace student_platform.DAL.Interfaces
     public interface ITeacherRepository
     {
         Task<List<TeacherModels>> GetAll();
-        Task<Teacher> GetById(int id);
-        Task Create(Teacher teacher);
+        Task<TeacherModels> GetById(int id);
+        Task Create(TeacherModels teacherModel);
         Task Update(Teacher teacher);
         Task Delete(Teacher teacher);
         Task<IQueryable<Teacher>> GetAllQuery();

@@ -17,8 +17,13 @@ namespace student_platform.DAL.Repositories
         {
             _context = context;
         }
-        public async Task Create(Teacher teacher)
+        public async Task Create(TeacherModels teacherModel)
         {
+            var teacher = new Teacher
+            {
+                Name = teacherModel.Name,
+                Course = teacherModel.Course
+            };
             await _context.Teachers.AddAsync(teacher);
             await _context.SaveChangesAsync();
         }
@@ -57,10 +62,15 @@ namespace student_platform.DAL.Repositories
             return query;
         }
 
-        public async Task<Teacher> GetById(int id)
+        public async Task<TeacherModels> GetById(int id)
         {
             var teacher = await _context.Teachers.FindAsync(id);
-            return teacher;
+            var teacherModel = new TeacherModels
+            {
+                Name = teacher.Name,
+                Course = teacher.Course
+            };
+            return teacherModel;
         }
 
         public async Task Update(Teacher teacher)

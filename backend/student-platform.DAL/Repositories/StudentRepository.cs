@@ -24,7 +24,7 @@ namespace student_platform.DAL.Repositories
             var list = new List<StudentModels>();
             foreach (var student in students)
             {
-                var studentModel = new StudentModels
+                StudentModels studentModel = new StudentModels
                 {
                     Name = student.Name
                 };
@@ -38,14 +38,23 @@ namespace student_platform.DAL.Repositories
             */
         }
 
-        public async Task<Student> GetById(int id)
+        public async Task<StudentModels> GetById(int id)
         {
-            var student = await _context.Students.FindAsync(id);
-            return student;
+            Student student = await _context.Students.FindAsync(id);
+            StudentModels studentModel = new StudentModels
+            {
+                Name = student.Name,
+                Major = student.Major
+            };
+            return studentModel;
         }
 
-        public async Task Create(Student student)
+        public async Task Create(StudentModels studentModel)
         {
+            var student = new Student { 
+                Name = studentModel.Name,
+                Major = studentModel.Major
+            };
             await _context.Students.AddAsync(student);
             await _context.SaveChangesAsync();
         }

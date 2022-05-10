@@ -17,8 +17,13 @@ namespace student_platform.DAL.Repositories
         {
             _context = context;
         }
-        public async Task Create(Deadline deadline)
+        public async Task Create(DeadlineModels deadlineModel)
         {
+            var deadline = new Deadline
+            {
+                Title = deadlineModel.Title,
+                DaysLeft = deadlineModel.DaysLeft
+            };
             await _context.Deadlines.AddAsync(deadline);
             await _context.SaveChangesAsync();
         }
@@ -57,10 +62,15 @@ namespace student_platform.DAL.Repositories
             return query;
         }
 
-        public async Task<Deadline> GetById(int id)
+        public async Task<DeadlineModels> GetById(int id)
         {
             var deadline = await _context.Deadlines.FindAsync(id);
-            return deadline;
+            var deadlineModel = new DeadlineModels
+            {
+                Title = deadline.Title,
+                DaysLeft = deadline.DaysLeft
+            };
+            return deadlineModel;
         }
 
         public async Task Update(Deadline deadline)

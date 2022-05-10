@@ -39,14 +39,24 @@ namespace student_platform.DAL.Repositories
             */
         }
 
-        public async Task<StudentAddress> GetById(int id)
+        public async Task<StudentAddressModels> GetById(int id)
         {
             var studentAddress = await _context.StudentAddresses.FindAsync(id);
-            return studentAddress;
+            StudentAddressModels studentAddressModel = new StudentAddressModels
+            {
+                City = studentAddress.City,
+                Country = studentAddress.Country
+            };
+            return studentAddressModel;
         }
 
-        public async Task Create(StudentAddress studentAddress)
+        public async Task Create(StudentAddressModels studentAddressModel)
         {
+            StudentAddress studentAddress = new StudentAddress
+            {
+                City = studentAddressModel.City,
+                Country = studentAddressModel.Country
+            };
             await _context.StudentAddresses.AddAsync(studentAddress);
             await _context.SaveChangesAsync();
         }
