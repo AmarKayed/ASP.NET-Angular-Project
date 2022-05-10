@@ -36,6 +36,10 @@ namespace student_platform.BLL.Managers
             return names;
         }
 
+        public async Task<Object> GetMajorCount()
+        {
+            return await _studentRepo.GetMajorCount();
+        }
 
         public async Task<List<string>> ModifyStudent()
         {

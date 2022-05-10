@@ -58,6 +58,19 @@ namespace student_platform.DAL.Repositories
             return studentModels;
         }
 
+        public async Task<Object> GetMajorCount()
+        {
+            var result = await _context.Students
+                .GroupBy(x => x.Major)
+                .Select(x => new
+                {
+                    Major = x.Key,
+                    Count = x.Count()
+                })
+                .OrderByDescending(x => x.Count)
+                .ToListAsync();
+            return result;
+        }
 
         public async Task<List<StudentModels>> GetAll()
         {

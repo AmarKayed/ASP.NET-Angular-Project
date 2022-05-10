@@ -13,6 +13,8 @@ namespace student_platform.DAL.Interfaces
     {
         Task<List<StudentJoinStudentAddressModels>> GetAddress();
         Task<List<StudentModels>> GetMajor(string major);
+        Task<Object> GetMajorCount();
+
 
         Task<List<StudentModels>> GetAll();
         Task<StudentModels> GetById(int id);

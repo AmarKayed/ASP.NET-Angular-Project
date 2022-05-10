@@ -33,6 +33,12 @@ namespace student_platform.Controllers
             return Ok(await _studentManager.GetMajor(major));
         }
 
+        [HttpGet("get-major-count")]
+        public async Task<IActionResult> GetMajorCount()
+        {
+            return Ok(await _studentManager.GetMajorCount());
+        }
+
         [HttpGet("get-modify")]
         public async Task<IActionResult> GetModify()
         {

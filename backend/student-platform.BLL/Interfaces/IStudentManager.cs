@@ -12,6 +12,7 @@ namespace student_platform.BLL.Interfaces
     {
         Task<List<StudentJoinStudentAddressModels>> GetAddress();
         Task<List<string>> GetMajor(string major);
+        Task<Object> GetMajorCount();
         Task<List<string>> ModifyStudent();
 
 
