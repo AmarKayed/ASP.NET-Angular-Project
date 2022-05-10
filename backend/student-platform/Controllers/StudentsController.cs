@@ -27,6 +27,12 @@ namespace student_platform.Controllers
             return Ok(await _studentManager.GetAddress());
         }
 
+        [HttpGet("get-major")]
+        public async Task<IActionResult> GetMajor([FromQuery] string major)
+        {
+            return Ok(await _studentManager.GetMajor(major));
+        }
+
         [HttpGet("get-modify")]
         public async Task<IActionResult> GetModify()
         {

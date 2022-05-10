@@ -40,6 +40,24 @@ namespace student_platform.DAL.Repositories
             return studentJoinAddressList;
         }
 
+        public async Task<List<StudentModels>> GetMajor(string major)
+        {
+            var students = _context.Students
+                .Where(x => x.Major == major)
+                .OrderBy(x => x.Name);
+            List<StudentModels> studentModels = new List<StudentModels>();
+            foreach(var student in students)
+            {
+                StudentModels studentModel = new StudentModels
+                {
+                    Name = student.Name,
+                    Major = student.Major
+                };
+                studentModels.Add(studentModel);
+            }
+            return studentModels;
+        }
+
 
         public async Task<List<StudentModels>> GetAll()
         {

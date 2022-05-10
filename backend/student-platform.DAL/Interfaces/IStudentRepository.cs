@@ -12,7 +12,7 @@ namespace student_platform.DAL.Interfaces
     public interface IStudentRepository
     {
         Task<List<StudentJoinStudentAddressModels>> GetAddress();
-
+        Task<List<StudentModels>> GetMajor(string major);
 
         Task<List<StudentModels>> GetAll();
         Task<StudentModels> GetById(int id);

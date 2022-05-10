@@ -25,6 +25,18 @@ namespace student_platform.BLL.Managers
             return (await _studentRepo.GetAddress());
         }
 
+        public async Task<List<string>> GetMajor(string major)
+        {
+            var students = await _studentRepo.GetMajor(major);
+            List<string> names = new List<string>();
+            foreach(var student in students)
+            {
+                names.Add(student.Name);
+            }
+            return names;
+        }
+
+
         public async Task<List<string>> ModifyStudent()
         {
             var students = await _studentRepo.GetAll();

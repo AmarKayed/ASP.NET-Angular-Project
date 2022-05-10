@@ -11,6 +11,7 @@ namespace student_platform.BLL.Interfaces
     public interface IStudentManager
     {
         Task<List<StudentJoinStudentAddressModels>> GetAddress();
+        Task<List<string>> GetMajor(string major);
         Task<List<string>> ModifyStudent();
 
 
