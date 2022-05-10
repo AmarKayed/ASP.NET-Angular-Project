@@ -3,6 +3,7 @@ using student_platform.DAL.Entities;
 using student_platform.DAL.Interfaces;
 using student_platform.DAL.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,13 @@ namespace student_platform.BLL.Managers
         {
             _studentRepo = studentRepo;
         }
+
+
+        public async Task<List<StudentJoinStudentAddressModels>> GetAddress()
+        {
+            return (await _studentRepo.GetAddress());
+        }
+
         public async Task<List<string>> ModifyStudent()
         {
             var students = await _studentRepo.GetAll();

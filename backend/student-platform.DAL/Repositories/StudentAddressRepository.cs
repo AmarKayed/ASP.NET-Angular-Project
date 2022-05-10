@@ -50,12 +50,13 @@ namespace student_platform.DAL.Repositories
             return studentAddressModel;
         }
 
-        public async Task Create(StudentAddressModels studentAddressModel)
+        public async Task Create(int studentId, StudentAddressModels studentAddressModel)
         {
             StudentAddress studentAddress = new StudentAddress
             {
                 City = studentAddressModel.City,
-                Country = studentAddressModel.Country
+                Country = studentAddressModel.Country,
+                StudentId = studentId
             };
             await _context.StudentAddresses.AddAsync(studentAddress);
             await _context.SaveChangesAsync();

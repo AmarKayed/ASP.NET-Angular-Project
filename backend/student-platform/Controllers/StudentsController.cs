@@ -21,6 +21,12 @@ namespace student_platform.Controllers
         }
 
 
+        [HttpGet("get-address")]
+        public async Task<IActionResult> GetAddress()
+        {
+            return Ok(await _studentManager.GetAddress());
+        }
+
         [HttpGet("get-modify")]
         public async Task<IActionResult> GetModify()
         {

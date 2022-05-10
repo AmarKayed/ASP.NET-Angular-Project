@@ -26,9 +26,9 @@ namespace student_platform.BLL.Managers
         {
             return (await _studentAddressRepo.GetById(id));
         }
-        public async Task Create(StudentAddressModels studentAddressModel)
+        public async Task Create(int studentId, StudentAddressModels studentAddressModel)
         {
-            await _studentAddressRepo.Create(studentAddressModel);
+            await _studentAddressRepo.Create(studentId, studentAddressModel);
         }
         public async Task Update(int id, StudentAddressModels studentAddressModel)
         {

@@ -12,7 +12,7 @@ namespace student_platform.DAL.Interfaces
     {
         Task<List<StudentAddressModels>> GetAll();
         Task<StudentAddressModels> GetById(int id);
-        Task Create(StudentAddressModels studentAddressModel);
+        Task Create(int studentId, StudentAddressModels studentAddressModel);
         Task Update(int id, StudentAddressModels studentAddressModel);
         Task Delete(int id);
         Task<IQueryable<StudentAddress>> GetAllQuery();

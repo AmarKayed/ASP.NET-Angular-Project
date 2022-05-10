@@ -3,6 +3,7 @@ using student_platform.DAL.Entities;
 using student_platform.DAL.Interfaces;
 using student_platform.DAL.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,28 @@ namespace student_platform.DAL.Repositories
         {
             _context = context;
         }
+
+        public async Task<List<StudentJoinStudentAddressModels>> GetAddress()
+        {
+            var joinResult = await (await GetAllQuery())
+                .Include(x => x.StudentAddress)
+                .Where(x => x.StudentAddress != null)
+                .ToListAsync();
+            List<StudentJoinStudentAddressModels> studentJoinAddressList = new List<StudentJoinStudentAddressModels>();
+            foreach(var join in joinResult)
+            {
+                StudentJoinStudentAddressModels studentJoinAddressModel = new StudentJoinStudentAddressModels
+                {
+                    Name = join.Name,
+                    Major = join.Major,
+                    City = join.StudentAddress.City,
+                    Country = join.StudentAddress.Country
+                };
+                studentJoinAddressList.Add(studentJoinAddressModel);
+            }
+            return studentJoinAddressList;
+        }
+
 
         public async Task<List<StudentModels>> GetAll()
         {

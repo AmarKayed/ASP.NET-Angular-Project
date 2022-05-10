@@ -47,6 +47,9 @@ namespace student_platform
             services.AddTransient<ITeacherRepository, TeacherRepository>();
 
             services.AddTransient<IStudentManager, StudentManager>();
+            services.AddTransient<IStudentAddressManager, StudentAddressManager>();
+            services.AddTransient<IDeadlineManager, DeadlineManager>();
+            services.AddTransient<ITeacherManager, TeacherManager>();
 
 
 
