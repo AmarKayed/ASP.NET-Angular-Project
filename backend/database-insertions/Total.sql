@@ -1,9 +1,62 @@
+delete from studentteachers
+where id in (
+	select id from studentteachers
+);
+
+DBCC CHECKIDENT (studentteachers, RESEED, 0);
+
+
+
+
+delete from teachers
+where id in (
+	select id from teachers
+);
+
+DBCC CHECKIDENT (teachers, RESEED, 0);
+
+
+
+
+delete from studentaddresses
+where id in (
+	select id from studentaddresses
+);
+
+DBCC CHECKIDENT (studentaddresses, RESEED, 0);
+
+
+
+
+delete from deadlines
+where id in (
+	select id from deadlines
+);
+
+DBCC CHECKIDENT (deadlines, RESEED, 0);
+
+
+
+
 delete from students
 where id in (
 	select id from students
 );
 
 DBCC CHECKIDENT (students, RESEED, 0);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 insert into students(name, major)
 values
@@ -32,21 +85,6 @@ values
 
 
 
-
-
-
-
-
-
-
-
-delete from studentaddresses
-where id in (
-	select id from studentaddresses
-);
-
-DBCC CHECKIDENT (studentaddresses, RESEED, 0);
-
 insert into studentaddresses(city, country, studentid)
 values
 ('Bucharest', 'Romania', 1),
@@ -64,23 +102,6 @@ values
 
 
 
-
-
-
-
-
-
-
-
-
-
-delete from deadlines
-where id in (
-	select id from deadlines
-);
-
-DBCC CHECKIDENT (deadlines, RESEED, 0);
-
 insert into deadlines(title, daysleft, studentid)
 values
 ('Math Project', 15, 1),
@@ -94,19 +115,6 @@ values
 
 
 
-
-
-
-
-
-
-delete from teachers
-where id in (
-	select id from teachers
-);
-
-DBCC CHECKIDENT (teachers, RESEED, 0);
-
 insert into teachers(name, course)
 values
 ('Nicolas', 'Intro To Computer Science'),
@@ -118,22 +126,6 @@ values
 
 
 
-
-
-
-
-
-
-
-
-
-
-delete from studentteachers
-where id in (
-	select id from studentteachers
-);
-
-DBCC CHECKIDENT (studentteachers, RESEED, 0);
 
 insert into studentteachers(studentid, teacherid)
 values

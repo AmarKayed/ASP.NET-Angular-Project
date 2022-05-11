@@ -24,13 +24,16 @@ namespace student_platform.DAL.Repositories
                 Name = teacherModel.Name,
                 Course = teacherModel.Course
             };
+
+            await _context.Teachers.AddAsync(teacher);
+            await _context.SaveChangesAsync();
+
             StudentTeacher studentTeacher = new StudentTeacher()
             {
                 StudentId = studentId,
                 TeacherId = teacher.Id
             };
 
-            await _context.Teachers.AddAsync(teacher);
             await _context.StudentTeachers.AddAsync(studentTeacher);
             await _context.SaveChangesAsync();
         }
