@@ -39,8 +39,8 @@ namespace student_platform.Controllers
             return NoContent();
         }
 
-        [HttpPut("update")]
-        public async Task<IActionResult> Update([FromQuery] int id, [FromBody] StudentAddressModels studentAddressModel)
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] StudentAddressModels studentAddressModel)
         {
             await _studentAddressManager.Update(id, studentAddressModel);
             return NoContent();

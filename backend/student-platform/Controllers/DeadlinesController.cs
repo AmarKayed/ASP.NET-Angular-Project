@@ -32,7 +32,7 @@ namespace student_platform.Controllers
             return Ok(await _deadlineManager.GetById(id));
         }
 
-        [HttpPost("create")]
+        [HttpPost("create/{studentId}")]
         public async Task<IActionResult> Create([FromRoute] int studentId, [FromBody] DeadlineModels deadlineModel)
         {
             await _deadlineManager.Create(studentId, deadlineModel);

@@ -32,10 +32,10 @@ namespace student_platform.Controllers
             return Ok(await _teacherManager.GetById(id));
         }
 
-        [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] TeacherModels teacherModel)
+        [HttpPost("create/{studentId}")]
+        public async Task<IActionResult> Create([FromRoute] int studentId, [FromBody] TeacherModels teacherModel)
         {
-            await _teacherManager.Create(teacherModel);
+            await _teacherManager.Create(studentId, teacherModel);
             return NoContent();
         }
 

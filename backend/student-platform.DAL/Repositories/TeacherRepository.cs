@@ -17,14 +17,21 @@ namespace student_platform.DAL.Repositories
         {
             _context = context;
         }
-        public async Task Create(TeacherModels teacherModel)
+        public async Task Create(int studentId, TeacherModels teacherModel)
         {
-            var teacher = new Teacher
+            Teacher teacher = new Teacher
             {
                 Name = teacherModel.Name,
                 Course = teacherModel.Course
             };
+            StudentTeacher studentTeacher = new StudentTeacher()
+            {
+                StudentId = studentId,
+                TeacherId = teacher.Id
+            };
+
             await _context.Teachers.AddAsync(teacher);
+            await _context.StudentTeachers.AddAsync(studentTeacher);
             await _context.SaveChangesAsync();
         }
 
