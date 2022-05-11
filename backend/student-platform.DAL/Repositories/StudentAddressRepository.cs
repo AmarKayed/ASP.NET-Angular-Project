@@ -52,6 +52,8 @@ namespace student_platform.DAL.Repositories
 
         public async Task Create(int studentId, StudentAddressModels studentAddressModel)
         {
+            if ((await _context.StudentAddresses.FirstOrDefaultAsync(x => x.StudentId == studentId)) != null)
+                return;
             StudentAddress studentAddress = new StudentAddress
             {
                 City = studentAddressModel.City,
@@ -65,7 +67,8 @@ namespace student_platform.DAL.Repositories
         public async Task Update(int id, StudentAddressModels studentAddressModel)
         {
             StudentAddress studentAddress = await _context.StudentAddresses.FindAsync(id);
-            studentAddress.City = studentAddressModel.City; studentAddress.Country = studentAddressModel.Country;
+            studentAddress.City = studentAddressModel.City; 
+            studentAddress.Country = studentAddressModel.Country;
             _context.StudentAddresses.Update(studentAddress);
             await _context.SaveChangesAsync();
         }
