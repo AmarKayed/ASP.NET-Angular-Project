@@ -67,12 +67,17 @@ namespace student_platform.DAL.Repositories
         public async Task<DeadlineModels> GetById(int id)
         {
             var deadline = await _context.Deadlines.FindAsync(id);
-            var deadlineModel = new DeadlineModels
+            if (deadline != null)
             {
-                Title = deadline.Title,
-                DaysLeft = deadline.DaysLeft
-            };
-            return deadlineModel;
+                var deadlineModel = new DeadlineModels
+                {
+                    Title = deadline.Title,
+                    DaysLeft = deadline.DaysLeft
+                };
+                return deadlineModel;
+            }
+            else
+                return null;
         }
 
         public async Task Update(int id, DeadlineModels deadlineModel)

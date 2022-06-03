@@ -141,6 +141,19 @@ namespace student_platform.DAL.Repositories
         public async Task Delete(int id)
         {
             Student student = await _context.Students.FindAsync(id);
+            
+            List<Deadline> studentDeadlines = await _context.Deadlines.Where(x => x.StudentId == id).ToListAsync();
+            foreach(var studentDeadline in studentDeadlines)
+            {
+                _context.Deadlines.Remove(studentDeadline);
+            }
+
+            List<StudentAddress> studentAddresses = await _context.StudentAddresses.Where(x => x.StudentId == id).ToListAsync();
+            foreach(var studentAddress in studentAddresses)
+            {
+                _context.StudentAddresses.Remove(studentAddress);
+            }
+
             _context.Students.Remove(student);
             await _context.SaveChangesAsync();
         }
