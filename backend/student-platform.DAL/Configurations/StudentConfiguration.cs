@@ -22,6 +22,10 @@ namespace student_platform.DAL.Configurations
             builder.Property(x => x.Major)
                 .HasColumnType("nvarchar(100)")
                 .HasMaxLength(100);
+
+            builder.Property(x => x.Email)
+                .HasColumnType("nvarchar(200)")
+                .HasMaxLength(200);
         }   
     }
 }

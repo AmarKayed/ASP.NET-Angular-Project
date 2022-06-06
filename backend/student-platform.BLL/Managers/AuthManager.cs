@@ -2,6 +2,7 @@
 using student_platform.BLL.Interfaces;
 using student_platform.BLL.Models;
 using student_platform.DAL.Entities;
+using student_platform.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +13,20 @@ namespace student_platform.BLL.Managers
 {
     public class AuthManager : IAuthManager
     {
+        private readonly IStudentManager _studentManager;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ITokenHelper _tokenHelper;
 
         public AuthManager(UserManager<User> userManager,
             SignInManager<User> signInManager,
-            ITokenHelper tokenHelper)
+            ITokenHelper tokenHelper,
+            IStudentManager studentManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenHelper = tokenHelper;
+            _studentManager = studentManager;
         }
 
         public async Task<LoginResult> Login(LoginModel loginModel)
@@ -73,6 +77,9 @@ namespace student_platform.BLL.Managers
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, registerModel.Role);
+                StudentModels studentModel = new StudentModels();
+                studentModel.Email = user.Email;
+                await _studentManager.Create(studentModel);
                 return true;
             }
             else

@@ -124,7 +124,8 @@ namespace student_platform.DAL.Repositories
         {
             var student = new Student { 
                 Name = studentModel.Name,
-                Major = studentModel.Major
+                Major = studentModel.Major,
+                Email = studentModel.Email
             };
             await _context.Students.AddAsync(student);
             await _context.SaveChangesAsync();
