@@ -1,24 +1,29 @@
 <div class="container">
-    <p>Name: {{studentDetails.name}}</p>
-    <p>Major: {{studentDetails.major}}</p>
-    <p>Email: {{studentDetails.email}}</p>
-    <p>City: {{studentDetails.city}}</p>
-    <p>Country: {{studentDetails.country}}</p>
-
-    <button type="button" class="btn btn-secondary" (click)="toggleDeadlines()">Show Deadlines</button>
-    <br />
-    <button type="button" class="btn btn-secondary" (click)="toggleAddDeadline()">Add New Deadline</button>
-    <br />
-    <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
-
-    <app-add-deadline *ngIf="showAddDeadline" [email]="email"></app-add-deadline>
-
-    <div class="deadlines" *ngIf="showDeadlines">
-        <ul class="list-group list-group-horizontal body">
-            <li class="list-group-item">Title</li>
-            <li class="list-group-item">Days Left</li>
-        </ul>
-        <app-deadline *ngFor="let deadline of studentDetails.deadlines" [deadline]="deadline"></app-deadline>
+  <div class="row">
+    <div class="col">
+        <p>Name: {{studentDetails.name}}</p>
+        <p>Major: {{studentDetails.major}}</p>
+        <p>Email: {{studentDetails.email}}</p>
+        <p>City: {{studentDetails.city}}</p>
+        <p>Country: {{studentDetails.country}}</p>
+    
+        <button type="button" class="btn btn-secondary" (click)="toggleDeadlines()">Show Deadlines</button>
+        <br />
+        <button type="button" class="btn btn-secondary" (click)="toggleAddDeadline()">Add New Deadline</button>
+        <br />
+        <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
     </div>
+    <div class="col"  *ngIf="showAddDeadline">
+        <app-add-deadline [email]="email"></app-add-deadline>
+    </div>
+    <div class="col" *ngIf="showDeadlines">
+        <div class="deadlines">
+            <ul class="list-group list-group-horizontal body">
+                <li class="list-group-item">Title</li>
+                <li class="list-group-item">Days Left</li>
+            </ul>
+            <app-deadline *ngFor="let deadline of studentDetails.deadlines" [deadline]="deadline"></app-deadline>
+        </div>
+    </div>
+  </div>
 </div>
-
