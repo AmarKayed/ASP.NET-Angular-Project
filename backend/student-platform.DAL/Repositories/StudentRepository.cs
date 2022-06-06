@@ -88,6 +88,14 @@ namespace student_platform.DAL.Repositories
         }
 
 
+        public async Task<int> GetIdByEmail(string email)
+        {
+            return await _context.Students.Where(x => x.Email == email).Select(x => x.Id).FirstOrDefaultAsync();
+        }
+
+
+
+
         public async Task<List<StudentModels>> GetAll()
         {
             var students = await (await GetAllQuery()).ToListAsync();

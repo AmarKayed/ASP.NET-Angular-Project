@@ -52,6 +52,11 @@ namespace student_platform.Controllers
             return Ok(await _studentManager.GetJoin());
         }
 
+        [HttpGet("get-id-by-email/{email}")]
+        public async Task<IActionResult> GetIdByEmail([FromRoute] string email)
+        {
+            return Ok(await _studentManager.GetIdByEmail(email));
+        }
 
 
 

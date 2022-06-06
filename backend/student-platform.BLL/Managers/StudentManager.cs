@@ -59,6 +59,10 @@ namespace student_platform.BLL.Managers
             return await _studentRepo.GetJoin();
         }
 
+        public async Task<int> GetIdByEmail(string email)
+        {
+            return await _studentRepo.GetIdByEmail(email);
+        }
 
 
 
