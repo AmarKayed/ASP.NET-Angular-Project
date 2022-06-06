@@ -32,6 +32,7 @@ namespace student_platform.DAL.Repositories
                 {
                     Name = join.Name,
                     Major = join.Major,
+                    Email = join.Email,
                     City = join.StudentAddress.City,
                     Country = join.StudentAddress.Country
                 };
@@ -51,7 +52,8 @@ namespace student_platform.DAL.Repositories
                 StudentModels studentModel = new StudentModels
                 {
                     Name = student.Name,
-                    Major = student.Major
+                    Major = student.Major,
+                    Email = student.Email
                 };
                 studentModels.Add(studentModel);
             }
@@ -105,7 +107,8 @@ namespace student_platform.DAL.Repositories
                 StudentModels studentModel = new StudentModels
                 {
                     Name = student.Name,
-                    Major = student.Major
+                    Major = student.Major,
+                    Email = student.Email
                 };
                 list.Add(studentModel);
             }
@@ -123,7 +126,8 @@ namespace student_platform.DAL.Repositories
             StudentModels studentModel = new StudentModels
             {
                 Name = student.Name,
-                Major = student.Major
+                Major = student.Major,
+                Email = student.Email
             };
             return studentModel;
         }

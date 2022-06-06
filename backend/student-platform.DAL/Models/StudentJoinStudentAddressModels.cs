@@ -10,6 +10,7 @@ namespace student_platform.DAL.Models
     {
         public string Name { get; set; }
         public string Major { get; set; }
+        public string Email { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
     }
