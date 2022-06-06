@@ -45,8 +45,7 @@ export class LoginComponent implements OnInit {
         console.log("Login Response: " + response)
         this.toggleResponseMessage = true;
         if(this.loginResult)
-          this.router.navigate(['/profile']);
-
+          this.router.navigate([`/profile/${email}`]);
       });
     // console.log(this.loginResult)
 
