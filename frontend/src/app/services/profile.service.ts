@@ -107,7 +107,7 @@ export class ProfileService {
       headers: {
         'Content-Type': 'application/json',
       },
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify(data)
     })
     .catch(error => {
