@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,12 +10,34 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  myForm: FormGroup = this.fb.group({
+    email: 'email@gmail.com',
+    password: 'Parola123!',
+  });
+
+  loginResult: boolean = false;
+  toggleResponseMessage: boolean = false;
+
+  constructor(
+    private auth: AuthService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.myForm.valueChanges.subscribe(console.log)
   }
 
   login(): void {
-    this.auth.login();
+    const { email, password} = this.myForm.value;
+    // console.warn(email, password)
+    this.auth.login(email, password).then(response => {
+      this.loginResult = response;
+      console.log("Login Response: " + response)
+      this.toggleResponseMessage = true;
+
+    });
+    // console.log(this.loginResult)
+  
+
   }
 }
