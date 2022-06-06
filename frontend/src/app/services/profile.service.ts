@@ -20,6 +20,11 @@ export interface StudentDetails extends Student, Address {
   deadlines: Deadline[];
 }
 
+export class DeadlineClass implements Deadline{
+  title: string='';
+  daysLeft: number=1;
+}
+
 export class StudentDetailsClass implements StudentDetails {
   name: string = '';
   major: string = '';

@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 import { routes } from './profile.routes';
 
 import { ProfileComponent } from './profile/profile.component';
+import { DeadlineComponent } from './deadline/deadline.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    DeadlineComponent
   ],
   imports: [
     CommonModule,

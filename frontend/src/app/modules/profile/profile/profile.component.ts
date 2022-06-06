@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   email: string = '';
   studentDetails: StudentDetailsClass = new StudentDetailsClass;
+  showDeadlines: boolean = false;
 
   constructor(
     private auth: AuthService,
@@ -38,6 +39,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  toggleDeadlines() {
+    this.showDeadlines = !this.showDeadlines;
+  }
 
   logout(): void{
     this.auth.logout();

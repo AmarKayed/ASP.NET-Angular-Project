@@ -4,11 +4,18 @@
     <p>Email: {{studentDetails.email}}</p>
     <p>City: {{studentDetails.city}}</p>
     <p>Country: {{studentDetails.country}}</p>
-    <!-- <p>{{studentDetails.deadlines}}</p> -->
-    
-    <!-- <button type="button" class="btn btn-primary">
-        <a routerLink="/login">Logout</a>
-    </button> -->
+
+    <button type="button" class="btn btn-secondary" (click)="toggleDeadlines()">Show Deadlines</button>
+    <br />
     <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
+
+
+    <div class="deadlines" *ngIf="showDeadlines">
+        <ul class="list-group list-group-horizontal body">
+            <li class="list-group-item">Title</li>
+            <li class="list-group-item">Days Left</li>
+        </ul>
+        <app-deadline *ngFor="let deadline of studentDetails.deadlines" [deadline]="deadline"></app-deadline>
+    </div>
 </div>
 
