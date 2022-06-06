@@ -82,4 +82,23 @@ export class ProfileService {
     .then(response => response.json())
     .catch(console.warn);
   }
+
+
+  addDeadline(title: string, daysLeft: number, id: number) {
+    if(daysLeft >= 1 && !(title === '')) {
+      console.log(title, daysLeft, id)
+      const data = { title: title, daysLeft: daysLeft}
+      fetch(`${this.apiUrl}/Deadlines/create/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .catch(error => {
+        console.warn(error)
+      });
+    }
+  }
+
 }

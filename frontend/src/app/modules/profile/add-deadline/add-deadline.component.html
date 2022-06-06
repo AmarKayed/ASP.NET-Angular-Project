@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="myForm">
+      Value: {{myForm.value | json}}
+  
+      <hr>
+      <div class="mb-3 row">
+          <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputTitle" formControlName="title">
+          </div>
+      </div>
+  
+      <div class="mb-3 row">
+          <label for="inputDaysLeft" class="col-sm-2 col-form-label">DaysLeft</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputDaysLeft" formControlName="daysLeft">
+          </div>
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="addDeadline()">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  

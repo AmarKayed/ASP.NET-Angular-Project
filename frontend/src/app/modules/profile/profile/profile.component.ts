@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   email: string = '';
   studentDetails: StudentDetailsClass = new StudentDetailsClass;
   showDeadlines: boolean = false;
+  showAddDeadline: boolean = false;
 
   constructor(
     private auth: AuthService,
@@ -42,6 +43,10 @@ export class ProfileComponent implements OnInit {
 
   toggleDeadlines() {
     this.showDeadlines = !this.showDeadlines;
+  }
+
+  toggleAddDeadline() {
+    this.showAddDeadline = !this.showAddDeadline;
   }
 
   logout(): void{

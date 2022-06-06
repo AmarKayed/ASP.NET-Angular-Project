@@ -7,8 +7,11 @@
 
     <button type="button" class="btn btn-secondary" (click)="toggleDeadlines()">Show Deadlines</button>
     <br />
+    <button type="button" class="btn btn-secondary" (click)="toggleAddDeadline()">Add New Deadline</button>
+    <br />
     <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
 
+    <app-add-deadline *ngIf="showAddDeadline" [email]="email"></app-add-deadline>
 
     <div class="deadlines" *ngIf="showDeadlines">
         <ul class="list-group list-group-horizontal body">
