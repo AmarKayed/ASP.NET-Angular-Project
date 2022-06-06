@@ -28,6 +28,7 @@ namespace student_platform
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -111,8 +112,20 @@ namespace student_platform
                 opt.AddPolicy("Student", policy => policy.RequireRole("Student").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
             });
 
+            // CORS:
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("http://localhost:4200")
+                                                           .AllowAnyHeader()
+                                                           .AllowAnyMethod();
+                                  });
+            });
 
-
+            // services.AddResponseCaching();
+            services.AddControllers();
 
         }
 
@@ -129,6 +142,11 @@ namespace student_platform
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // CORS:
+            app.UseStaticFiles();
+            app.UseCors(MyAllowSpecificOrigins);
+            // ^CORS
 
             app.UseAuthorization();
 
