@@ -17,6 +17,11 @@ namespace student_platform.BLL.Managers
             _deadlineRepo = deadlineRepo;
         }
 
+        public async Task<List<DeadlineModels>> GetByStudentId(int studentId)
+        {
+            return await _deadlineRepo.GetByStudentId(studentId);
+        }
+
         public async Task<List<DeadlineModels>> GetAll()
         {
             return (await _deadlineRepo.GetAll());

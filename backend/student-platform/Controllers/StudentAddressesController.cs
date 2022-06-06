@@ -19,6 +19,12 @@ namespace student_platform.Controllers
             _studentAddressManager = studentAddressManager;
         }
 
+        [HttpGet("get-by-student-id")]
+        public async Task<IActionResult> GetByStudentId([FromQuery] int studentId)
+        {
+            return Ok(await _studentAddressManager.GetByStudentId(studentId));
+        }
+
 
         [HttpGet("get")]
         public async Task<IActionResult> Get()

@@ -10,6 +10,8 @@ namespace student_platform.DAL.Interfaces
 {
     public interface IStudentAddressRepository
     {
+        Task<StudentAddressModels> GetByStudentId(int studentId);
+
         Task<List<StudentAddressModels>> GetAll();
         Task<StudentAddressModels> GetById(int id);
         Task Create(int studentId, StudentAddressModels studentAddressModel);

@@ -18,6 +18,12 @@ namespace student_platform.BLL.Managers
             _studentAddressRepo = studentAddressRepo;
         }
 
+        public async Task<StudentAddressModels> GetByStudentId(int studentId)
+        {
+            return await _studentAddressRepo.GetByStudentId(studentId);
+        }
+
+
         public async Task<List<StudentAddressModels>> GetAll()
         {
             return (await _studentAddressRepo.GetAll());

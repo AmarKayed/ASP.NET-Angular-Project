@@ -17,6 +17,24 @@ namespace student_platform.DAL.Repositories
         {
             _context = context;
         }
+
+
+        public async Task<List<DeadlineModels>> GetByStudentId(int studentId)
+        {
+            List<Deadline> deadlines = await _context.Deadlines.Where(x => x.StudentId == studentId).ToListAsync();
+            var list = new List<DeadlineModels>();
+            foreach (Deadline deadline in deadlines)
+            {
+                DeadlineModels deadlineModel = new DeadlineModels
+                {
+                    Title = deadline.Title,
+                    DaysLeft = deadline.DaysLeft
+                };
+                list.Add(deadlineModel);
+            }
+            return list;
+        }
+
         public async Task Create(int studentId, DeadlineModels deadlineModel)
         {
             var deadline = new Deadline

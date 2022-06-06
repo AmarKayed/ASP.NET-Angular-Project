@@ -18,18 +18,32 @@ namespace student_platform.DAL.Repositories
             _context = context;
         }
 
+        public async Task<StudentAddressModels> GetByStudentId(int studentId)
+        {
+            var studentAddress = await _context.StudentAddresses.Where(x => x.StudentId == studentId).FirstOrDefaultAsync();
+            if (studentAddress == null)
+                return null;
+            StudentAddressModels studentAddressModel = new StudentAddressModels()
+            {
+                City = studentAddress.City,
+                Country = studentAddress.Country
+            };
+            return studentAddressModel;
+        }
+
+
         public async Task<List<StudentAddressModels>> GetAll()
         {
             var studentAddresses = await (await GetAllQuery()).ToListAsync();
             var list = new List<StudentAddressModels>();
             foreach (var studentAddress in studentAddresses)
             {
-                var studentModel = new StudentAddressModels
+                var studentAddressModel = new StudentAddressModels
                 {
                     City = studentAddress.City,
                     Country = studentAddress.Country
                 };
-                list.Add(studentModel);
+                list.Add(studentAddressModel);
             }
             return list;
             // Inainte de a schimba Task<List<StudentAddress>> in Task<List<StudentAddressModels>>

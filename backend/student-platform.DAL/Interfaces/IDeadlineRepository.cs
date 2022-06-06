@@ -10,6 +10,8 @@ namespace student_platform.DAL.Interfaces
 {
     public interface IDeadlineRepository
     {
+        Task<List<DeadlineModels>> GetByStudentId(int studentId);
+
         Task<List<DeadlineModels>> GetAll();
         Task<DeadlineModels> GetById(int id);
         Task Create(int studentId, DeadlineModels deadlineModel);

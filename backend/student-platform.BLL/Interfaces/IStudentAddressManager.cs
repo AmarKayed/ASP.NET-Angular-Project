@@ -9,6 +9,8 @@ namespace student_platform.BLL.Interfaces
 {
     public interface IStudentAddressManager
     {
+        Task<StudentAddressModels> GetByStudentId(int studentId);
+
         Task<List<StudentAddressModels>> GetAll();
         Task<StudentAddressModels> GetById(int id);
         Task Create(int studentId, StudentAddressModels studentAddressModel);
