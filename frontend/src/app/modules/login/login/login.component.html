@@ -17,7 +17,16 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+    <div class="mb-3 row" *ngIf="toggleRegister">
+        <label for="repeatPassword" class="col-sm-2 col-form-label">Repeat Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="repeatPassword" formControlName="repeatPassword">
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="toggleRegister? register() : login()">
+      {{toggleRegister? 'Register': 'Login'}}
+    </button>
   </form>
 
 
@@ -26,7 +35,16 @@
 
 
 </div>
-
+<div class="loginOrRegister">
+  {{toggleRegister? 'Already have an account?' : 'Don\'t have an account yet?' | lowercase }}
+  <button 
+    type="button" 
+    class="btn btn-primary"
+    (click)="toggle()"
+  >
+    {{toggleRegister? 'login here!': 'register here!' | titlecase}}
+  </button>
+</div>
 <!-- <form [formGroup]="myForm">
   Value: {{myForm.value | json}}
 

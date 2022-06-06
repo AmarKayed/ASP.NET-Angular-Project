@@ -56,4 +56,27 @@ export class AuthService {
     return !!localStorage.getItem('accessToken');
   }
 
+  register(email: string, password: string) {
+    const data = {email: email, password: password, role: 'Student'};   
+
+    return fetch(`${this.apiUrl}/Auth/Register`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(response => {
+      // localStorage.setItem('accessToken', response.accessToken);
+      // localStorage.setItem('refreshToken', response.refreshToken);
+      console.log(response)
+      return true;
+    })
+    .catch(error => {
+      console.warn(error)
+      return false;
+    });
+  }
+
 }

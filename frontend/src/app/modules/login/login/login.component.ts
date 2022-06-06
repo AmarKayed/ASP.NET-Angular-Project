@@ -12,12 +12,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   myForm: FormGroup = this.fb.group({
-    email: 'email@gmail.com',
+    email: 'email2@gmail.com',
     password: 'Parola123!',
+    repeatPassword: 'Parola123!',
   });
 
   loginResult: boolean = false;
   toggleResponseMessage: boolean = false;
+  toggleRegister: boolean = false;
 
   constructor(
     private auth: AuthService,
@@ -27,6 +29,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     // this.myForm.valueChanges.subscribe(console.log)
+  }
+
+
+  toggle(){
+    this.toggleRegister = !this.toggleRegister;
   }
 
   login(): void {
@@ -42,7 +49,19 @@ export class LoginComponent implements OnInit {
 
       });
     // console.log(this.loginResult)
-  
 
   }
+
+
+  register(): void{
+    const { email, password, repeatPassword} = this.myForm.value;
+    if (!(password === repeatPassword)){
+      alert("Passwords donot match!")
+    }
+    else{
+      this.auth.register(email, password);
+    }
+  }
+
+
 }
