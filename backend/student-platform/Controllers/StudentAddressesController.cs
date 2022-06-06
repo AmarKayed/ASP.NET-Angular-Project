@@ -25,6 +25,12 @@ namespace student_platform.Controllers
             return Ok(await _studentAddressManager.GetByStudentId(studentId));
         }
 
+        [HttpGet("update-by-student-id/{studentId}")]
+        public async Task<IActionResult> UpdateByStudentId([FromRoute] int studentId, [FromBody] StudentAddressModels studentAddressModel)
+        {
+            return Ok(await _studentAddressManager.UpdateByStudentId(studentId, studentAddressModel));
+        }
+
 
         [HttpGet("get")]
         public async Task<IActionResult> Get()

@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(email, password)
       .then(response => {
         this.loginResult = response;
-        console.log("Login Response: " + response)
+        // console.log("Login Response: " + response)
         this.toggleResponseMessage = true;
         if(this.loginResult)
           this.router.navigate([`/profile/${email}`]);

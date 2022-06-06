@@ -8,14 +8,16 @@
         <p>Country: {{studentDetails.country}}</p>
     
         <button type="button" class="btn btn-secondary" (click)="toggleDeadlines()">Show Deadlines</button>
-        <br />
         <button type="button" class="btn btn-secondary" (click)="toggleAddDeadline()">Add New Deadline</button>
-        <br />
+        <button type="button" class="btn btn-secondary" (click)="toggleUpdateAddress()">Update Address</button>
         <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
     </div>
-    <div class="col"  *ngIf="showAddDeadline">
-        <app-add-deadline [email]="email"></app-add-deadline>
+
+    <div class="col" *ngIf="showAddDeadline || showUpdateAddress">
+        <app-add-deadline [email]="email" *ngIf="showAddDeadline"></app-add-deadline>
+        <app-update-address [email]="email" *ngIf="showUpdateAddress"></app-update-address>
     </div>
+    
     <div class="col" *ngIf="showDeadlines">
         <div class="deadlines">
             <ul class="list-group list-group-horizontal body">

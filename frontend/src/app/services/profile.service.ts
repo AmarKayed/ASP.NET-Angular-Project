@@ -101,4 +101,18 @@ export class ProfileService {
     }
   }
 
+  updateAddress(city: string, country: string, id: number) {
+    const data = { city: city, country: country};
+    fetch(`${this.apiUrl}/StudentAddresses/update-by-student-id/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .catch(error => {
+      console.warn(error)
+    });
+  }
+
 }

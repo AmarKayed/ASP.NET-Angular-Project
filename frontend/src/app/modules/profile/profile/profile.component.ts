@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   studentDetails: StudentDetailsClass = new StudentDetailsClass;
   showDeadlines: boolean = false;
   showAddDeadline: boolean = false;
+  showUpdateAddress: boolean = false;
 
   constructor(
     private auth: AuthService,
@@ -46,7 +47,13 @@ export class ProfileComponent implements OnInit {
   }
 
   toggleAddDeadline() {
+    this.showUpdateAddress = false;
     this.showAddDeadline = !this.showAddDeadline;
+  }
+
+  toggleUpdateAddress() {
+    this.showAddDeadline = false;
+    this.showUpdateAddress = !this.showUpdateAddress;
   }
 
   logout(): void{

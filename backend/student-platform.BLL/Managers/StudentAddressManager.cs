@@ -23,6 +23,12 @@ namespace student_platform.BLL.Managers
             return await _studentAddressRepo.GetByStudentId(studentId);
         }
 
+        public async Task UpdateByStudentId(int studentId, StudentAddressModels studentAddressModels)
+        {
+            await _studentAddressRepo.UpdateByStudentId(studentId, studentAddressModels);
+        }
+
+
 
         public async Task<List<StudentAddressModels>> GetAll()
         {

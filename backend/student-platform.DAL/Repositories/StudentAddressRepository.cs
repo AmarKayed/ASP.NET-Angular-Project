@@ -31,6 +31,18 @@ namespace student_platform.DAL.Repositories
             return studentAddressModel;
         }
 
+        public async Task UpdateByStudentId(int studentId, StudentAddressModels studentAddressModel)
+        {
+            var studentAddress = await _context.StudentAddresses.Where(x => x.StudentId == studentId).FirstOrDefaultAsync();
+            if (studentAddress != null)
+            {
+                studentAddress.City = studentAddressModel.City;
+                studentAddress.Country = studentAddressModel.Country;
+                _context.StudentAddresses.Update(studentAddress);
+                await _context.SaveChangesAsync();
+            }
+        }
+
 
         public async Task<List<StudentAddressModels>> GetAll()
         {

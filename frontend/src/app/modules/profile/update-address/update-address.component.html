@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="myForm">
+      Value: {{myForm.value | json}}
+  
+      <hr>
+      <div class="mb-3 row">
+          <label for="inputCity" class="col-sm-2 col-form-label">City</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCity" formControlName="city">
+          </div>
+      </div>
+  
+      <div class="mb-3 row">
+          <label for="inputCountry" class="col-sm-2 col-form-label">Country</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCountry" formControlName="country">
+          </div>
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="updateAddress()">
+        Update
+      </button>
+    </form>
+  </div>
+
+  
