@@ -22,7 +22,8 @@
 
 
   <div>{{loginResult}}</div>
-  <div *ngIf="toggleResponseMessage" [ngClass]="loginResult ? 'loginSuccess' : 'loginFailed'">{{loginResult? 'SUCCESS' : 'FAILED'}}</div>
+  <div *ngIf="toggleResponseMessage" [ngClass]="loginResult ? 'loginSuccess' : 'loginFailed'">{{loginResult? 'success' : 'failed' | uppercase }}</div>    <!-- PIPES-->
+
 
 </div>
 

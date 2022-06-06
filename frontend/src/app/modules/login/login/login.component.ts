@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -20,22 +21,26 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.myForm.valueChanges.subscribe(console.log)
+    // this.myForm.valueChanges.subscribe(console.log)
   }
 
   login(): void {
     const { email, password} = this.myForm.value;
     // console.warn(email, password)
-    this.auth.login(email, password).then(response => {
-      this.loginResult = response;
-      console.log("Login Response: " + response)
-      this.toggleResponseMessage = true;
+    this.auth.login(email, password)
+      .then(response => {
+        this.loginResult = response;
+        console.log("Login Response: " + response)
+        this.toggleResponseMessage = true;
+        if(this.loginResult)
+          this.router.navigate(['/profile']);
 
-    });
+      });
     // console.log(this.loginResult)
   
 
