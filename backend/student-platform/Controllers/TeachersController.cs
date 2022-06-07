@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using student_platform.BLL.Interfaces;
 using student_platform.DAL.Models;
@@ -19,13 +20,14 @@ namespace student_platform.Controllers
             _teacherManager = teacherManager;
         }
 
-
+        [Authorize("Admin")]
         [HttpGet("get")]
         public async Task<IActionResult> Get()
         {
             return Ok(await _teacherManager.GetAll());
         }
 
+        [Authorize("Student")]
         [HttpGet("get/{id}")]
         public async Task<IActionResult> GetId([FromRoute] int id)
         {
@@ -39,6 +41,7 @@ namespace student_platform.Controllers
             return NoContent();
         }
 
+        [Authorize("Student")]
         [HttpPut("update")]
         public async Task<IActionResult> Update([FromQuery] int id, [FromBody] TeacherModels teacherModel)
         {
@@ -46,6 +49,7 @@ namespace student_platform.Controllers
             return NoContent();
         }
 
+        [Authorize("Admin")]
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {

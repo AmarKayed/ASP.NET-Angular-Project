@@ -29,8 +29,6 @@
     </button>
   </form>
 
-
-  <div>{{loginResult}}</div>
   <div *ngIf="toggleResponseMessage" [ngClass]="loginResult ? 'loginSuccess' : 'loginFailed'">{{loginResult? 'success' : 'failed' | uppercase }}</div>    <!-- PIPES-->
 
 

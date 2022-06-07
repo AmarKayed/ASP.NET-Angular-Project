@@ -11,12 +11,6 @@ export class AuthService {
 
   async login(email: string, password: string): Promise<boolean>{
     const data = {email: email, password: password};
-    // const data = {email: "email@gmail.com", password: "Parola123!"};
-    // console.log(JSON.stringify(data));
-    
-    // fetch(`${this.apiUrl}/Students/get`).then(response => response.json())
-    // .then(response => console.log(response))
-    
 
     return fetch(`${this.apiUrl}/Auth/Login`, {
       headers: {
@@ -35,16 +29,6 @@ export class AuthService {
       console.warn(error)
       return false;
     });
- 
-
-
-    // fetch(`${this.apiUrl}/breeds?limit=${this.limit}`, {
-    //   headers:{
-    //     'x-api-key': this.apiKey
-    //   }
-    // }).then(response => response.json());
-
-    
   }
 
   logout() {
@@ -68,8 +52,6 @@ export class AuthService {
     })
     .then(response => response.json())
     .then(response => {
-      // localStorage.setItem('accessToken', response.accessToken);
-      // localStorage.setItem('refreshToken', response.refreshToken);
       console.log(response)
       return true;
     })
