@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Deadline {
   title: string;
@@ -57,7 +58,14 @@ export class ProfileService {
 
   private apiUrl = 'https://localhost:44380/api';
 
+  private messageSource = new BehaviorSubject<StudentDetailsClass>(new StudentDetailsClass());
+  currentMessage = this.messageSource.asObservable();
+  
   constructor() { }
+
+  changeMessage(message: StudentDetailsClass){
+    this.messageSource.next(message)
+  }
 
   getIdByEmail(email: string): Promise<number> {
     return fetch(`${this.apiUrl}/Students/get-id-by-email/${email}`)
@@ -109,6 +117,13 @@ export class ProfileService {
       },
       method: 'PUT',
       body: JSON.stringify(data)
+    })
+    .then(() => {
+      this.getStudentAddress(id).then(address => {
+        const newStudent = this.messageSource.value;
+        newStudent.city = address.city; newStudent.country = address.country;
+        this.changeMessage(newStudent);
+      })
     })
     .catch(error => {
       console.warn(error)

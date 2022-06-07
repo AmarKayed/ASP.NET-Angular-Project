@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { ProfileService, StudentDetailsClass } from 'src/app/services/profile.service';
+import { ProfileService, Student, StudentDetailsClass } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +11,7 @@ import { ProfileService, StudentDetailsClass } from 'src/app/services/profile.se
 export class ProfileComponent implements OnInit {
 
   email: string = '';
+  // studentDetails: StudentDetailsClass = new StudentDetailsClass;
   studentDetails: StudentDetailsClass = new StudentDetailsClass;
   showDeadlines: boolean = false;
   showAddDeadline: boolean = false;
@@ -26,21 +27,20 @@ export class ProfileComponent implements OnInit {
     this.profileService.getIdByEmail(this.email)
     .then(response => {
       this.profileService.getStudent(response).then(student => {
-        this.studentDetails.name = student.name;
-        this.studentDetails.major = student.major;
-        this.studentDetails.email = student.email;
         this.profileService.getStudentAddress(response).then(address => {
-          this.studentDetails.city = address.city;
-          this.studentDetails.country = address.country;
           this.profileService.getStudentDeadlines(response).then(deadlines => {
-            this.studentDetails.deadlines = deadlines;
+            const { name, major, email, city, country} = {...student, ...address}
+            const newStudentDetailsClass = new StudentDetailsClass( name, major, email, city, country, deadlines); 
+            this.profileService.changeMessage(newStudentDetailsClass)
           });
         });
       });
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.profileService.currentMessage.subscribe(message => this.studentDetails = message);
+  }
 
   toggleDeadlines() {
     this.showDeadlines = !this.showDeadlines;
